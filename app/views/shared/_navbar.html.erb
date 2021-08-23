@@ -1,0 +1,26 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="nav-link" href="#"><%= link_to 'Le Tuister', root_path, class: 'navbar-brand'%></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav ml-auto">
+        <% if user_signed_in? %>
+            <a class="nav-link">
+                <%= link_to 'Sign Out', destroy_user_session_path, method: :delete, class: 'nav-link' %>
+            </a>
+            <a class="nav-item active">
+            </a>
+        <% else %>
+            <a class="nav-item active">
+                <%= link_to 'Registrate', new_user_registration_path, class: 'nav-link'%>
+            </a>
+            <a class="nav-item active">
+                <%= link_to 'Iniciar Sesión', new_user_session_path, class: 'nav-link'%>
+            </a>
+        <% end %>
+        <a class="nav-link" href="#">Features</a>
+        <a class="nav-link" href="#">Pricing</a>
+    </div>
+  </div>
+</nav>
