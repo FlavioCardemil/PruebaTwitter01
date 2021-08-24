@@ -27,9 +27,7 @@ ActiveRecord::Schema.define(version: 2021_08_22_201841) do
     t.datetime "updated_at", null: false
     t.integer "user_id"
     t.integer "tweet_id"
-    t.integer "tweet_id_id"
     t.index ["tweet_id"], name: "index_tweets_on_tweet_id"
-    t.index ["tweet_id_id"], name: "index_tweets_on_tweet_id_id"
     t.index ["user_id"], name: "index_tweets_on_user_id"
   end
 
