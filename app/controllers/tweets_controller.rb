@@ -3,13 +3,19 @@ class TweetsController < ApplicationController
 
   # GET /tweets or /tweets.json
   def index
-    @tweets = Tweet.limit(50)
     @tweet = Tweet.new
     @user_likes = Like.where(user: current_user).pluck(:tweet_id)
+    @tweets = Tweet.page params[:page]
   end
 
   # GET /tweets/1 or /tweets/1.json
   def show
+    @tweet_likes = @tweet.likes
+  end
+
+  def retweet
+    new_tweet = Tweet.create(content: @tweet.content, user: current_user)
+    redirect_to root_path
   end
 
   # GET /tweets/new
@@ -57,11 +63,6 @@ class TweetsController < ApplicationController
       format.html { redirect_to tweets_url, notice: "Tweet was successfully destroyed." }
       format.json { head :no_content }
     end
-  end
-
-  def retweet
-    new_tweet = Tweet.create(content: @tweet.content, user: current_user)
-    redirect_to root_path
   end
 
   private

@@ -1,5 +1,19 @@
 <div class="container">
-  <%= render "form" %>
-<h1 class="text-center">Tweets</h1>
-  <%= render "post" %>
+  <% if user_signed_in? %>
+    <div>
+        <%= render "form", tweet: @tweet %>
+    </div>
+  <%end %>
+  
+  
+  <h1 class="text-center">Tweets</h1>
+  <%= render "post", tweet: @tweet %>
 </div>
+
+<% paginate @tweets %>
+
+<div class="actions">
+  <%= link_to_previous_page  @tweets, 'Página anterior' %>
+  <%= link_to_next_page @tweets, 'Página siguiente'%>
+</div>
+
