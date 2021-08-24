@@ -1,24 +1,29 @@
-# README
+# Le Tuister
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+_Este proyecto es la versión 1 de un clone de Twitter construído en Ruby on Rails como examen de módulo de Desarrollo de aplicaciones web con Rails para DesafíoLaram Chile._
 
-Things you may want to cover:
+## Comenzando 🚀
 
-* Ruby version
+_Para hacer uso de este código hacer clone de GitHub y administrar como proyecto propio._
 
-* System dependencies
+### Pre-requisitos 🛠️
 
-* Configuration
+_Debes contar con las siguientes herramientas_
 
-* Database creation
+```
+Ruby 2.7.3
+Rails 5.2.6
+```
 
-* Database initialization
+### Servidor 🔧
 
-* How to run the test suite
+_Para poder ingresar a esta aplicación_
 
-* Services (job queues, cache servers, search engines, etc.)
+[Heroku](https://serene-brushlands-77679.herokuapp.com/)
 
-* Deployment instructions
+## Autor ✒️
 
-* ...
+* **Flavio Cardemil** - [FlavioCardemil](https://github.com/FlavioCardemil)
+
+---
+⌨️ con ❤️ por [Flavio](https://github.com/FlavioCardemil) 😊
