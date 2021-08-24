@@ -1,4 +1,4 @@
-# Título del Proyecto
+# Le Tuister
 
 _Este proyecto es la versión 1 de un clone de Twitter construído en Ruby on Rails como examen de módulo de Desarrollo de aplicaciones web con Rails para DesafíoLaram Chile._
 
@@ -25,7 +25,7 @@ https://serene-brushlands-77679.herokuapp.com/
 
 ## Autor ✒️
 
-* **Flavio Cardemil** - [villanuevand](https://github.com/FlavioCardemil)
+* **Flavio Cardemil** - [FlavioCardemil](https://github.com/FlavioCardemil)
 
 ---
 ⌨️ con ❤️ por [Flavio](https://github.com/FlavioCardemil) 😊
