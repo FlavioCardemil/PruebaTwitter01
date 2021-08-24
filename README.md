@@ -19,7 +19,7 @@ Rails 5.2.6
 
 _Para poder ingresar a esta aplicación_
 
-Heroku(https://serene-brushlands-77679.herokuapp.com/)
+[Heroku](https://serene-brushlands-77679.herokuapp.com/)
 
 ## Autor ✒️
 
