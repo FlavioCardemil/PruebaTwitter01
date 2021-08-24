@@ -1,20 +1,48 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Content:</strong>
-  <%= @tweet.content %>
-</p>
+<h4>El Twit es:</h4>
+<div class="card mb-3" style="max-width: 540px;">
+    <div class="row no-gutters">
+        <div class="col-md-4">
+            <%=image_tag @tweet.user.photo, style: 'heightauto;width:135px;' %>
+        </div>
+        <div class="col-md-8">
+            <div class="card-body">
+                <h5 class="card-title"><%= @tweet.user.name %> dice:</h5>
+                <p class="card-text"><%= @tweet.content %></p>
+                <span>
+                  <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-recycle" width="28" height="28" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <path d="M12 17l-2 2l2 2m-2 -2h9a2 2 0 0 0 1.75 -2.75l-.55 -1" />
+                    <path d="M12 17l-2 2l2 2m-2 -2h9a2 2 0 0 0 1.75 -2.75l-.55 -1" transform="rotate(120 12 13)" />
+                    <path d="M12 17l-2 2l2 2m-2 -2h9a2 2 0 0 0 1.75 -2.75l-.55 -1" transform="rotate(240 12 13)" />
+                  </svg>
+                </span>
+                <span><%= @tweet.retweets.count %></span>
+                <span>
+                  <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-heart" width="28" height="28" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                      <path d="M19.5 13.572l-7.5 7.428l-7.5 -7.428m0 0a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572" />
+                  </svg>
+                </span>
+                <span><%= @tweet.likes.count %></span>
+                <p class="card-text"><small class="text-muted"><%= distance_of_time_in_words(Time.now, @tweet.created_at) %></small></p>
+            </div>
+        </div>
+    </div>
+</div>
 
-<% @tweet_likes.each do |l| %>
-  <div class = "container text-center">
-    <div class="row">
-      <div class>
-        <div class="col-sm card pt-4 mb-3 " style="width: 18rem;">
-          <%=image_tag l.user.photo %>
-          <div class="card-body">
-            <h5 class="card-title">@<%= l.user.username%> le gusta este tweet¡¡</h5>
-            <p class="card-text"></p>
-          </div>
+<h4>Los que le dieron Like son:</h4>
+
+<% @tweet_likes.each do |tweet| %>
+  <div class="card mb-3" style="max-width: 540px;">
+    <div class="row no-gutters">
+      <div class="col-md-4">
+        <%=image_tag tweet.user.photo, style: 'heightauto;width:135px;' %>
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <p class="card-text"><%= tweet.user.name%></p>
         </div>
       </div>
     </div>
