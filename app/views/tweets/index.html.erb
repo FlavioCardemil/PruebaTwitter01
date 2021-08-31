@@ -2,18 +2,17 @@
   <% if user_signed_in? %>
     <div>
         <%= render "form", tweet: @tweet %>
+        <%= render "users_to_follow" %>
     </div>
   <%end %>
-  
+
   
   <h1 class="text-center">Tweets</h1>
   <%= render "post", tweet: @tweet %>
+
+  <%= paginate @tweets %>
 </div>
 
-<% paginate @tweets %>
-
 <div class="actions">
-  <%= link_to_previous_page  @tweets, 'Página anterior' %>
-  <%= link_to_next_page @tweets, 'Página siguiente'%>
 </div>
 

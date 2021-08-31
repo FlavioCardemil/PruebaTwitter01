@@ -3,9 +3,18 @@ class TweetsController < ApplicationController
 
   # GET /tweets or /tweets.json
   def index
+
+    if params[:q]
+      @tweets = Tweet.where('content LIKE ?', "%#{params[:q]}%").order(created_at: :desc).page params[:page]
+    # elsif user_signed_in?
+      # @tweets = Tweet.tweets_for_me(current_user).order(created_at: :desc).page params[:page]
+    else
+      @tweets = Tweet.eager_load(:user, :likes).order(created_at: :desc).page params[:page]
+    end
+
     @tweet = Tweet.new
     @user_likes = Like.where(user: current_user).pluck(:tweet_id)
-    @tweets = Tweet.page params[:page]
+    @users = User.where('id IS NOT ?', current_user.id).last(3) if user_signed_in?
   end
 
   # GET /tweets/1 or /tweets/1.json
@@ -14,7 +23,8 @@ class TweetsController < ApplicationController
   end
 
   def retweet
-    new_tweet = Tweet.create(content: @tweet.content, user: current_user)
+    new_tweet = Tweet.create(content: "RT: @#{@tweet.user.name}: '#{@tweet.content}' ", user: current_user)
+    @tweet.retweets.push(new_tweet)
     redirect_to root_path
   end
 
@@ -29,7 +39,6 @@ class TweetsController < ApplicationController
 
   # POST /tweets or /tweets.json
   def create
-    @tweets = Tweet.limit(50)
     @tweet = Tweet.new(tweet_params)
     @tweet.user = current_user
     respond_to do |format|
@@ -37,7 +46,7 @@ class TweetsController < ApplicationController
         format.html { redirect_to root_path, notice: "Tweet creado felizmente." }
         format.json { redirect_to root_path, status: :created, location: @tweet }
       else
-        format.html { redirect_to root_path, status: :unprocessable_entity, notice: "No se puede tuitear nada." }
+        format.html { redirect_to root_path, notice: "No se puede tuitear nada." }
         format.json { render json: @tweet.errors, status: :unprocessable_entity }
       end
     end

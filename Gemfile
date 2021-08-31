@@ -30,6 +30,8 @@ gem 'devise'
 gem 'bootstrap', '~> 4.3.1'
 gem 'jquery-rails'
 gem 'kaminari'
+gem 'faker'
+gem 'activeadmin'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
