@@ -14,7 +14,7 @@ class TweetsController < ApplicationController
 
     @tweet = Tweet.new
     @user_likes = Like.where(user: current_user).pluck(:tweet_id)
-    @users = User.where.not(user.id: current_user.id).last(3) if user_signed_in?
+    @users = User.where.not(id: current_user.id).last(3) if user_signed_in?
   end
 
   # GET /tweets/1 or /tweets/1.json
