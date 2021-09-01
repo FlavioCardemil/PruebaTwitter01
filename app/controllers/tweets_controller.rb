@@ -23,7 +23,7 @@ class TweetsController < ApplicationController
   end
 
   def retweet
-    new_tweet = Tweet.create(content: "RT: @#{@tweet.user.name}: '#{@tweet.content}' ", user: current_user)
+    new_tweet = Tweet.create(content: "RT: @#{@tweet.user.name}: '#{@tweet.content} ' ", user: current_user)
     @tweet.retweets.push(new_tweet)
     redirect_to root_path
   end
