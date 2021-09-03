@@ -2,12 +2,13 @@
   <% if user_signed_in? %>
     <div>
         <%= render "form", tweet: @tweet %>
+        <h2 class="text-center">Usuarios para seguir</h2>
         <%= render "users_to_follow" %>
     </div>
   <%end %>
 
   
-  <h1 class="text-center">Tweets</h1>
+  <h2 class="text-center">Tweets</h2>
   <%= render "post", tweet: @tweet %>
 
   <%= paginate @tweets %>

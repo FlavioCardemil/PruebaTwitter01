@@ -1,12 +1,10 @@
-<div class="carousel slide">
-    <div class="carousel-inner">
-            <div class="row">
-                <% @users.each do |user| %>
-
-                <%= link_to follow_path(user.id), method: :post do %>
-                    <%= image_tag user.photo %>
-                <% end %>
+<div>
+    <% current_user.users_to_follow.each do |user| %>
+        <% if user.id != current_user.id %>
+            <%= image_tag user.photo, class:"img-rounded", height:"150", class:"me-3" %>
+            <%= link_to follow_path(user.id), class:"btn btn-primary", method: :post do %>
+                <%= "seguir" %>
             <% end %>
-            </div>
-    </div>
+        <% end %>
+    <% end %>
 </div>

@@ -6,15 +6,14 @@ class TweetsController < ApplicationController
 
     if params[:q]
       @tweets = Tweet.where('content LIKE ?', "%#{params[:q]}%").order(created_at: :desc).page params[:page]
-    # elsif user_signed_in?
-      # @tweets = Tweet.tweets_for_me(current_user).order(created_at: :desc).page params[:page]
+    elsif user_signed_in?
+      @tweets = Tweet.tweets_for_me(current_user).or(current_user.tweets).order(created_at: :desc).page params[:page]
     else
       @tweets = Tweet.eager_load(:user, :likes).order(created_at: :desc).page params[:page]
     end
 
     @tweet = Tweet.new
     @user_likes = Like.where(user: current_user).pluck(:tweet_id)
-    @users = User.where.not(id: current_user.id).last(3) if user_signed_in?
   end
 
   # GET /tweets/1 or /tweets/1.json
