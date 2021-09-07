@@ -21,16 +21,30 @@ _Para poder ingresar a esta aplicación_
 
 [Heroku](https://salty-woodland-34397.herokuapp.com/)
 
+### Admin 
+
+_para entrar al administrador se debe ir a la siguiente URL:_
+
+```
+https://salty-woodland-34397.herokuapp.com/admin/login
+```
+_y usar las siguiente credenciales:_
+
+```
+User: admin@example.com
+Pass: 123456
+```
+
 ### API 
 
-_Las consultas a las APIs se pueden hacer a través de_
+_Las consultas a las APIs se pueden hacer a través de:_
 
 #### News
 
 _Consulta los últimos 50 Tweets_
 
 ```
-api/v1/news
+https://salty-woodland-34397.herokuapp.com/api/v1/news
 ```
 
 #### Por fecha
@@ -38,13 +52,9 @@ api/v1/news
 _Consulta los Tweets dentro de una fecha establecida, las fechas se deben poner con una combinación de Año-Mes-Dia_
 
 ```
-api/v1/:fecha-de-inicio/:fecha-de-termino
-api/v1/2021-08-01/2021-09-05 (URL de ejemplo)
+https://salty-woodland-34397.herokuapp.com/api/v1/:fecha-de-inicio/:fecha-de-termino
+https://salty-woodland-34397.herokuapp.com/api/v1/2021-08-01/2021-09-09 (URL de ejemplo)
 ```
-
-## Autor ✒️
-
-* **Flavio Cardemil** - [FlavioCardemil](https://github.com/FlavioCardemil)
 
 ---
 ⌨️ con ❤️ por [Flavio](https://github.com/FlavioCardemil) 😊
