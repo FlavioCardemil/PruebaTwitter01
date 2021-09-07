@@ -6,6 +6,7 @@
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav ml-auto">
         <% if user_signed_in? %>
+            <%= image_tag current_user.photo, class: "nav-link", style: "width: 50px" %>
             <a class="nav-link">
                 <%= link_to 'Salir', destroy_user_session_path, method: :delete, class: 'nav-link' %>
             </a>

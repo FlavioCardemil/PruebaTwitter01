@@ -7,42 +7,20 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'faker'
 
- User.create([{
-     name: Faker::TvShows::RickAndMorty.character,
-     photo: Faker::Avatar.image,
-     email: 'pep@mail.com',
-     password: '123456',
-     password_confirmation: '123456'
- },{
-     name: Faker::TvShows::RickAndMorty.character,
-     photo: Faker::Avatar.image,
-     email: 'pip@mail.com',
-     password: '123456',
-     password_confirmation: '123456'
- },{
-     name: Faker::TvShows::RickAndMorty.character,
-     photo: Faker::Avatar.image,
-     email: 'pop@mail.com',
-     password: '123456',
-     password_confirmation: '123456'
- },{
-     name: Faker::TvShows::RickAndMorty.character,
-     photo: Faker::Avatar.image,
-     email: 'pap@mail.com',
-     password: '123456',
-     password_confirmation: '123456'
- },{
-     name: Faker::TvShows::RickAndMorty.character,
-     photo: Faker::Avatar.image,
-     email: 'pup@mail.com',
-     password: '123456',
-     password_confirmation: '123456'
- }])
-
  50.times do
+    User.create(
+     name: Faker::TvShows::RickAndMorty.character,
+     photo: Faker::Avatar.image,
+     email: Faker::Internet.email,
+     password: '123456',
+     password_confirmation: '123456'
+    )
+ end
+
+ 300.times do
      Tweet.create(
          content: Faker::TvShows::RickAndMorty.quote,
-         user_id: Random.rand(1..5)
+         user_id: Random.rand(1..50)
      )
  end
 

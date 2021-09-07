@@ -21,6 +21,27 @@ _Para poder ingresar a esta aplicación_
 
 [Heroku](https://salty-woodland-34397.herokuapp.com/)
 
+### API 
+
+_Las consultas a las APIs se pueden hacer a través de_
+
+#### News
+
+_Consulta los últimos 50 Tweets_
+
+```
+api/v1/news
+```
+
+#### Por fecha
+
+_Consulta los Tweets dentro de una fecha establecida, las fechas se deben poner con una combinación de Año-Mes-Dia_
+
+```
+api/v1/:fecha-de-inicio/:fecha-de-termino
+api/v1/2021-08-01/2021-09-05 (URL de ejemplo)
+```
+
 ## Autor ✒️
 
 * **Flavio Cardemil** - [FlavioCardemil](https://github.com/FlavioCardemil)
